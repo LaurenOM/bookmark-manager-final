@@ -34,8 +34,9 @@
           <input type="text" id="text_<%=bookmark['id']%>" name="text">
           <input type="submit" name="comment_<%=bookmark['id']%>" value="Submit comment">
         </form>
-        <%=Comment.all(bookmark['id'])%>
-         <br>
+        <%Comment.all(bookmark['id']).each do |comment| %>
+         <%= "#{comment['text']}" %>
+         <% end %>
       <% end %>
     </ul>
   </body>
